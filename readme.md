@@ -10,6 +10,8 @@ This was build to complete a [FreeCodeCamp challenge](http://www.freecodecamp.co
 
 - Reset timer
 
+- Prevents time-cheating
+
 - Reponsive design
 
 ## Screenshot

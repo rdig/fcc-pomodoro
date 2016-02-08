@@ -1,16 +1,33 @@
 @import "normalize";
 
+@import url(https://fonts.googleapis.com/css?family=Rubik:400,500);
+
 $default-text-color: #111111;
 $footer-link-color: #27ae60;
+$pomodoro-background-color: tomato;
+$pomodoro-edge-color: #c81700;
+$pomodoro-time-color: #f9f9f9;
+$pomodoro-break-color: #44835f;
+$pomodoro-start-background: #2ecc71;
+$pomodoro-start-border: #27ae60;
+$pomodoro-reset-background: #3498DB;
+$pomodoro-reset-border: #2980B9;
 
-$sprite-map: '';
-$sprite-map-alt: '';
+$sprite-map: '../media/sprites/rg-fcc-pomodoro-sprites_v1.svg';
+$sprite-map-alt: '../media/sprites/rg-fcc-pomodoro-sprites_v1.png';
 
 $github-icon: '../media/icons/rg-fcc-icon-github_v1.svg';
 $github-icon-alt: '../media/icons/rg-fcc-icon-github_v1.png';
 
 $github-icon-light: 0px 0px;
 $github-icon-dark: -57px 0px;
+
+$tracker-icon: 0px 0px;
+$start-icon: -88px -2px;
+$reset-icon: -175px 0px;
+$left-icon: -45px -2px;
+$right-icon: -133px -2px;
+
 
 @mixin debug {
 	border:1px dashed tomato;
@@ -61,6 +78,7 @@ $github-icon-dark: -57px 0px;
 	user-select: text;
 }
 @mixin fcc-footer {
+	display: none;
 	top: auto;
 	bottom: 0;
 	padding: 10px 10px 10px 10px;
@@ -68,7 +86,10 @@ $github-icon-dark: -57px 0px;
 	font-size: 11px;
 	position: fixed;
 	z-index: 1;
-	display: block;
+	@media (min-height: 800px) {
+		display: block;
+		padding: 10px 10px 20px 10px;
+	}
 	width: 100%;
 	a {
 		color: $footer-link-color;
@@ -101,14 +122,88 @@ $github-icon-dark: -57px 0px;
 			outline: 0;
 		}
 	}
-	@media (min-width: 800px) {
-		padding: 10px 10px 20px 10px;
-	}
 }
+@mixin pomodoro_border_radius {
+	-webkit-border-top-right-radius: 150px;
+	-webkit-border-bottom-right-radius: 250px;
+	-webkit-border-top-left-radius: 150px;
+	-webkit-border-bottom-left-radius: 250px;
+	-moz-border-top-right-radius: 150px;
+	-moz-border-bottom-right-radius: 250px;
+	-moz-border-top-left-radius: 150px;
+	-moz-border-bottom-left-radius: 250px;
+	-ms-border-top-right-radius: 150px;
+	-ms-border-bottom-right-radius: 250px;
+	-ms-border-top-left-radius: 150px;
+	-ms-border-bottom-left-radius: 250px;
+	border-top-right-radius: 150px;
+	border-bottom-right-radius: 250px;
+	border-top-left-radius: 150px;
+	border-bottom-left-radius: 250px;
+}
+@mixin pomodoro_shadow {
+	-webkit-box-shadow:	inset -25px 0px 0px 0px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:	inset -25px 0px 0px 0px rgba(0, 0, 0, 0.2);
+	-ms-box-shadow:	inset -25px 0px 0px 0px rgba(0, 0, 0, 0.2);
+	box-shadow:	inset -25px 0px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+@mixin round_button_radius {
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	-ms-border-radius: 50px;
+	border-radius: 50px;
+}
+
+@mixin round_button_left {
+	-webkit-border-top-right-radius: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	-webkit-border-top-left-radius: 50px;
+	-webkit-border-bottom-left-radius: 50px;
+	-moz-border-top-right-radius: 0px;
+	-moz-border-bottom-right-radius: 0px;
+	-moz-border-top-left-radius: 50px;
+	-moz-border-bottom-left-radius: 50px;
+	-ms-border-top-right-radius: 0px;
+	-ms-border-bottom-right-radius: 0px;
+	-ms-border-top-left-radius: 50px;
+	-ms-border-bottom-left-radius: 50px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+}
+
+@mixin round_button_right {
+	-webkit-border-top-right-radius: 50px;
+	-webkit-border-bottom-right-radius: 50px;
+	-webkit-border-top-left-radius: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	-moz-border-top-right-radius: 50px;
+	-moz-border-bottom-right-radius: 50px;
+	-moz-border-top-left-radius: 0px;
+	-moz-border-bottom-left-radius: 0px;
+	-ms-border-top-right-radius: 50px;
+	-ms-border-bottom-right-radius: 50px;
+	-ms-border-top-left-radius: 0px;
+	-ms-border-bottom-left-radius: 0px;
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+
 
 * { box-sizing: border-box; }
 html {}
-body { margin: 0 0 0 0;	padding: 0 0 0 0; color: $default-text-color; }
+body {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	color: $default-text-color;
+	font-family:
+	'Rubik', sans-serif;
+	overflow: hidden;
+}
 footer { @include fcc-footer; }
 .boiler {
 	@include absolute-center;
@@ -116,5 +211,175 @@ footer { @include fcc-footer; }
 	p {
 		text-align: center;
 		font-style: italic;
+	}
+}
+.hidden {
+	display: none !important;
+}
+.wrapper {
+	margin: -50px 0 0 0;
+	margin-left: -225px;
+	position: absolute;
+	left: 50%;
+	overflow: hidden;
+	text-align: center;
+	@media (min-height: 500px) {
+		margin-top: 0;
+	}
+	@media (min-height: 600px) {
+		margin-top: 15%;
+	}
+	@media (max-width: 800px) {
+		@media (max-height: 400px) {
+			margin-top: -100px;
+		}
+	}
+	.pomodoro-background {
+		@include pomodoro_border_radius;
+		@include pomodoro_shadow;
+		background-color: $pomodoro-background-color;
+		border: 15px solid $pomodoro-edge-color;
+		width: 450px;
+		height: 310px;
+		overflow: hidden;
+		text-align: center;
+	}
+	.split {
+		width: 100%;
+		margin: 10px 0 0 0;
+		height: 9px;
+		background-color: $pomodoro-edge-color;
+	}
+	.tracker {
+		@include sprite_defaults;
+		width: 12px;
+		height: 18px;
+		display: block;
+		margin: 18px auto 0 auto;
+		background-position: $tracker-icon;
+		background-repeat: no-repeat;
+		display: none;
+	}
+	.time {
+		margin: 100px auto 0 auto;
+		font-size: 32px;
+		color: $pomodoro-time-color;
+		font-weight: 500;
+	}
+	.break {
+		margin: 10px auto 0 auto;
+		font-size: 28px;
+		color: $pomodoro-break-color;
+		font-weight: 500;
+	}
+	.blinker {
+		display: none;
+		font-size: 30px;
+		color: $pomodoro-time-color;
+		font-weight: 500;
+		position: absolute;
+		opacity: 0.8;
+		margin: -37px 0 0 22px;
+	}
+	.button-group {
+		margin: 30px 0 0px 0;
+		text-align: center;
+		.group {
+			display: inline-block;
+			margin: 0 6px 0 6px;
+			@media (min-width: 500px) {
+				margin: 0 12px 0 12px;
+			}
+		}
+		.text {
+			background-color: $pomodoro-background-color;
+			border-bottom: 3px solid $pomodoro-edge-color;
+			line-height: 47px;
+			height: 50px;
+			display: inline-block;
+			color: $pomodoro-time-color;
+			font-size: 16px;
+			font-weight: 400;
+			padding: 0px 0px 0 0px;
+			vertical-align: top;
+			@media (min-width: 500px) {
+				padding: 0px 10px 0 10px;
+			}
+			&.color-break {
+				color: $pomodoro-break-color;
+			}
+		}
+	}
+	.button {
+		padding: 0 0 0 0;
+		margin: 0 0 0 0;
+		border: 0px;
+		text-align: center;
+		height: 50px;
+		width: 50px;
+		line-height: 50px;
+		border-bottom: 3px solid transparent;
+		display: inline-block;
+		&:hover {
+			opacity: 0.9;
+		}
+		&:active {
+			opacity: 1;
+			border-color: transparent !important;
+		}
+		&.round {
+			@include round_button_radius;
+		}
+		&.start {
+			background-color: $pomodoro-start-background;
+			margin: 30px 0px 0 0;
+			border-color: $pomodoro-start-border;
+		}
+		&.reset {
+			background-color: $pomodoro-reset-background;
+			margin: 30px 0px 0 0;
+			border-color: $pomodoro-reset-border;
+		}
+		&.left {
+			@include round_button_left;
+			background-color: $pomodoro-background-color;
+			border-color: $pomodoro-edge-color;
+			margin: 0 -4px 0 0px;
+		}
+		&.right {
+			@include round_button_right;
+			background-color: $pomodoro-background-color;
+			border-color: $pomodoro-edge-color;
+			margin: 0 0 0 -4px;
+		}
+	}
+	.icon {
+		@include sprite_defaults;
+		width: 16px;
+		height: 16px;
+		display: inline-block;
+		margin: 0 -3px -3px 0;
+		padding: 0 0 0 0;
+		background-repeat: no-repeat;
+		&.start {
+			width: 13px;
+			background-position: $start-icon;
+		}
+		&.reset {
+			height: 19px;
+			width: 22px;
+			margin: 0 0 -5px -1px;
+			background-position: $reset-icon;
+		}
+		&.left {
+			height: 17px;
+			width: 10px;
+			background-position: $left-icon;
+		}
+		&.right {
+			height: 17px;
+			width: 10px;
+			background-position: $right-icon;
+		}
 	}
 }
