@@ -3,6 +3,7 @@
 @import url(https://fonts.googleapis.com/css?family=Rubik:400,500);
 
 $default-text-color: #111111;
+$background-color: #f4dcb8;
 $footer-link-color: #27ae60;
 $pomodoro-background-color: tomato;
 $pomodoro-edge-color: #c81700;
@@ -195,7 +196,9 @@ $right-icon: -133px -2px;
 
 
 * { box-sizing: border-box; }
-html {}
+html {
+	background-color: $background-color;
+}
 body {
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
