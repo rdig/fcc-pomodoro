@@ -1,0 +1,120 @@
+@import "normalize";
+
+$default-text-color: #111111;
+$footer-link-color: #27ae60;
+
+$sprite-map: '';
+$sprite-map-alt: '';
+
+$github-icon: '../media/icons/rg-fcc-icon-github_v1.svg';
+$github-icon-alt: '../media/icons/rg-fcc-icon-github_v1.png';
+
+$github-icon-light: 0px 0px;
+$github-icon-dark: -57px 0px;
+
+@mixin debug {
+	border:1px dashed tomato;
+}
+@mixin sprite_defaults {
+	background: url($sprite-map-alt);
+	background-image: url($sprite-map), none;
+	background-repeat: no-repeat;
+}
+@mixin absolute-center {
+	margin: auto;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+}
+@mixin traditional-center($width: 400px) {
+	.outer {
+		display: table;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+	}
+
+	.middle {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.inner {
+		margin-left: auto;
+		margin-right: auto;
+		width: $width;
+	}
+}
+@mixin disable_text_selection {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+@mixin enable_text_selection {
+	-webkit-touch-callout: text;
+	-webkit-user-select: text;
+	-khtml-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+}
+@mixin fcc-footer {
+	top: auto;
+	bottom: 0;
+	padding: 10px 10px 10px 10px;
+	text-align: center;
+	font-size: 11px;
+	position: fixed;
+	z-index: 1;
+	display: block;
+	width: 100%;
+	a {
+		color: $footer-link-color;
+		text-decoration: none;
+	}
+	.brand {
+		color: $default-text-color;
+		text-decoration: underline;
+		font-weight: bold;
+	}
+	p {
+		margin: 0 0 4px 0px;
+	}
+	.github {
+		display: block;
+		outline: 0;
+		.icon {
+			@include sprite_defaults;
+			vertical-align: top;
+			margin: 0px 0 0 0;
+			display:inline-block;
+			height: 26px;
+			width: 26px;
+			background: url($github-icon-alt);
+			background-image: url($github-icon), none;
+			background-position: $github-icon-dark;
+
+		}
+		&:focus {
+			outline: 0;
+		}
+	}
+	@media (min-width: 800px) {
+		padding: 10px 10px 20px 10px;
+	}
+}
+
+* { box-sizing: border-box; }
+html {}
+body { margin: 0 0 0 0;	padding: 0 0 0 0; color: $default-text-color; }
+footer { @include fcc-footer; }
+.boiler {
+	@include absolute-center;
+	height: 50px;
+	p {
+		text-align: center;
+		font-style: italic;
+	}
+}
