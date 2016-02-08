@@ -22,7 +22,7 @@ $github-icon-alt: '../media/icons/rg-fcc-icon-github_v1.png';
 $github-icon-light: 0px 0px;
 $github-icon-dark: -57px 0px;
 
-$tracker-icon: 0px 0px;
+$tracker-icon: -1px 0px;
 $start-icon: -88px -2px;
 $reset-icon: -175px 0px;
 $left-icon: -45px -2px;
@@ -258,7 +258,6 @@ footer { @include fcc-footer; }
 		margin: 18px auto 0 auto;
 		background-position: $tracker-icon;
 		background-repeat: no-repeat;
-		display: none;
 	}
 	.time {
 		margin: 100px auto 0 auto;
@@ -277,9 +276,10 @@ footer { @include fcc-footer; }
 		font-size: 30px;
 		color: $pomodoro-time-color;
 		font-weight: 500;
-		position: absolute;
 		opacity: 0.8;
-		margin: -37px 0 0 22px;
+		position: absolute;
+		left: 50%;
+		margin: -38px 0px 0 20px;
 	}
 	.button-group {
 		margin: 30px 0 0px 0;

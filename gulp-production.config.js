@@ -57,7 +57,7 @@ gulp.task('Transpile JS', ['Cleanup'], function() {
 gulp.task('Process Media', ['Cleanup'], function() {
 	// filter images / media files so we don't process anything else that might end
 	// up in the media folder, although it shoudn't
-	var filteredMediaFiles = ['ico', 'gif', 'jpg', 'jpeg', 'png', 'svg', 'svgz'].map(function(ext) {
+	var filteredMediaFiles = ['ico', 'gif', 'jpg', 'jpeg', 'png', 'svg', 'svgz', 'mp3', 'ogg'].map(function(ext) {
 		return config.paths.src.media + '.' + ext;
 	});
 	gulp.src(filteredMediaFiles).pipe(gulp.dest(config.paths.dest.media));

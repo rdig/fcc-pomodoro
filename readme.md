@@ -14,6 +14,8 @@ This was build to complete a [FreeCodeCamp challenge](http://www.freecodecamp.co
 
 - Reponsive design
 
+- Minimalist
+
 ## Screenshot
 
 ![Screenshot](sources/media/images/screenshot.png "FreeCodeCamp Boilerplate")

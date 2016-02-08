@@ -15,21 +15,21 @@
 			<div class="time">25</div>
 			<span class="blinker">.</span>
 			<div class="split"></div>
-			<span class="tracker"></span>
+			<span class="tracker hidden"></span>
 			<div class="break">5</div>
 		</div>
-		<button class="button round start" type="button"><span class="icon start"></span></button>
-		<button class="button round reset hidden" type="button"><span class="icon reset"></span></button>
+		<button id="start" class="button round start" type="button"><span class="icon start"></span></button>
+		<button id="reset" class="button round reset hidden" type="button"><span class="icon reset"></span></button>
 		<div class="button-group">
 			<div class="group">
-				<button class="button left" type="button"><span class="icon left"></span></button>
+				<button id="remove-time" class="button left" type="button"><span class="icon left"></span></button>
 				<span class="text">Time</span>
-				<button class="button right" type="button"><span class="icon right"></span></button>
+				<button id="add-time" class="button right" type="button"><span class="icon right"></span></button>
 			</div>
 			<div class="group">
-				<button class="button left" type="button"><span class="icon left"></span></button>
+				<button id="remove-break" class="button left" type="button"><span class="icon left"></span></button>
 				<span class="text color-break">Break</span>
-				<button class="button right" type="button"><span class="icon right"></span></button>
+				<button id="add-break" class="button right" type="button"><span class="icon right"></span></button>
 			</div>
 		</div>
 	</div>
@@ -37,6 +37,8 @@
 		<p>&copy; 2016 <a href="http://glogovetan.com" class="brand" target="_blank">Raul Glogovetan</a>. Project built for a <a href="http://www.freecodecamp.com/challenges/build-a-pomodoro-clock" target="_blank">FreeCodeCamp</a> challenge.</p>
 		<a class="github" href="https://github.com/rdig/fcc-pomodoro" title="Raul Glogovetan's Public Repository" target="_blank"><span class="icon"></span></a>
 	</footer>
+	<audio src="media/audio/elevator-ding.mp3" id="ding"></audio>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script src="scripts/boilerplate.js"></script>
 </body>
 </html>

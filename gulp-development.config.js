@@ -80,7 +80,7 @@ gulp.task('Lint JS', function() {
 gulp.task('Process Media', function() {
 	// filter images / media files so we don't process anything else that might end
 	// up in the media folder, although it shoudn't
-	var filteredMediaFiles = ['ico', 'gif', 'jpg', 'jpeg', 'png', 'svg', 'svgz'].map(function(ext) {
+	var filteredMediaFiles = ['ico', 'gif', 'jpg', 'jpeg', 'png', 'svg', 'svgz', 'mp3', 'ogg'].map(function(ext) {
 		return config.paths.src.media + '.' + ext;
 	});
 	gulp.src(filteredMediaFiles).pipe(gulp.dest(config.paths.dest.media)).pipe(connect.reload());
