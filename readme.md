@@ -80,7 +80,3 @@ This project is licensed under the Mozilla Public License Version 2.0. You can [
 This project uses additional libraries, each with it's own license:
 
 - `jquery` - [Copyright jQuery Foundation and other contributors](https://github.com/jquery/jquery/blob/master/LICENSE.txt)
-
-#### Icons
-
-This project uses icons by [Name here](http://)
